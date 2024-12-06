@@ -1,161 +1,134 @@
 <script setup lang="ts">
 import { IonGrid, IonRow, IonCol } from '@ionic/vue';
+import { defineComponent, onMounted } from 'vue';
+
+let latestCruiserCourier = "";
+let latestFirstPersonDeath = ""
+
+const fetchVersion = async (name: string) => {
+  const response = await fetch(`https://thunderstore.io/api/experimental/package/rogan/${name}/`);
+  const baseJson = await response.json();
+
+  if (name == "CruiserCourier") {
+    latestCruiserCourier = baseJson['latest']['version_number'];
+  }
+  else if (name == "FirstPersonDeath") {
+    latestFirstPersonDeath = baseJson['latest']['version_number'];
+  }
+}
+
+onMounted(() => {
+  fetchVersion("CruiserCourier");
+  fetchVersion("FirstPersonDeath");
+})
 
 </script>
 
 <template>
   <div class="wrapper">
     <div class="project">
-			<IonGrid>
-				<IonRow>
-					<IonCol>
-						<div class="header-wrapper">
-							Lethal Company
-						</div>
-					</IonCol>
-				</IonRow>
-				<IonRow>
-					<IonCol size="auto">
-						<div class="image-wrapper">
-							<img class="image" src="../../img/about/profile.gif">
-						</div>
-					</IonCol>
-					<IonCol>
-						<div class="text-wrapper">
-							<div class="header">
-								First Person Death
-							</div>
-							<div class="main">
-								Simple mod that re-enables the first person camera after death instead of using the default spectator camera; Lightweight, configurable, and client-sided!
-							</div>
-						</div>
-						<a class="button-wrapper" href="https://github.com/notrogan/FirstPersonDeath" target="_blank" rel="noreferrer noopener">
+      <IonGrid style="width: 92%;">
+        <IonRow>
+          <IonCol size="7">
+            <img class="image" src="../../img/gallery_1.jpg">
+          </IonCol>
+          <IonCol>
+            <div style="display: flex;">
+              <div class="header" style="margin-left: 2rem;">
+                Cruiser Courier
+              </div>
+              <div class="version">
+                {{ latestCruiserCourier }}
+              </div>
+            </div>
+            <div class="sub" style="margin-left: 2rem;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+						<a class="button-wrapper" href="https://github.com/notrogan/CruiserCourier" target="_blank" rel="noreferrer noopener">
 							<div class="button">
 								<div class="button-text">
 									View on GitHub
 								</div>
 							</div>
 						</a>
-					</IonCol>
-				</IonRow>
-				<IonRow>
-					<IonCol size="auto">
-						<div class="image-wrapper">
-							<img class="image" src="../../img/about/profile.gif">
-						</div>
-					</IonCol>
-					<IonCol>
-						<div class="text-wrapper">
-							<div class="header">
-								No Fox
-							</div>
-							<div class="main">
-								Hate the kidnapper fox? Me too. This mod disables both the fox and vain shrouds so that you never have to see that abomination again; Simple and server-sided!
-							</div>
-						</div>
-						<a class="button-wrapper" href="https://github.com/notrogan/NoFox" target="_blank" rel="noreferrer noopener">
+          </IonCol>
+        </IonRow>
+        
+        <div style="height: 5vh;"></div>
+
+        <IonRow>
+          <IonCol>
+            <div style="display: flex;">
+              <div class="header" style="margin-left: 2rem;">
+                First Person Death
+              </div>
+              <div class="version">
+                {{ latestFirstPersonDeath }}
+              </div>
+            </div>
+            <div class="sub" style="text-align: right; margin-right: 2rem">
+              
+            </div>
+						<a class="button-wrapper" style="float: right;" href="https://github.com/notrogan/FirstPersonDeath" target="_blank" rel="noreferrer noopener">
 							<div class="button">
 								<div class="button-text">
 									View on GitHub
 								</div>
 							</div>
 						</a>
-					</IonCol>
-				</IonRow>
-			</IonGrid>
-			<div class="buffer"></div>
-			<IonGrid>
-				<IonRow>
-					<IonCol>
-						<div class="header-wrapper">
-							Counter Strike
-						</div>
-					</IonCol>
-				</IonRow>
-				<IonRow>
-					<IonCol size="auto">
-						<div class="image-wrapper">
-							<img class="image" src="../../img/about/profile.gif">
-						</div>
-					</IonCol>
-					<IonCol>
-						<div class="text-wrapper">
-							<div class="header">
-								First Person Death
-							</div>
-							<div class="main">
-								Simple mod that re-enables the first person camera after death instead of using the default spectator camera; Lightweight, configurable, and client-sided!
-							</div>
-						</div>
-						<a class="button-wrapper" href="https://github.com/notrogan/FirstPersonDeath" target="_blank" rel="noreferrer noopener">
-							<div class="button">
-								<div class="button-text">
-									View on GitHub
-								</div>
-							</div>
-						</a>
-					</IonCol>
-				</IonRow>
-			</IonGrid>
+          </IonCol>
+          <IonCol size="7">
+            <img class="image" src="../../img/gallery_1.jpg">
+          </IonCol>
+        </IonRow>
+      </IonGrid>
     </div>
   </div>
 </template>
 
 <style scoped>
 
-.header-wrapper {
-	color: white;
-	font-size: 3.5rem;
-	margin-left: 0.75rem;
-	font-family: "rivian-bold", "aileron-bold";
-}
-
-.buffer {
-	height: 2rem;
-}
-
 .wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  .project {
+    .image {
+      width: 100%;
+      float: right;
+      height: 50vh;
+      margin-top: 1rem;
+      margin-left: 1rem;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border-radius: 1.5rem;
+    }
 
-	.project {
-		width: 50%;
-		min-width: 50rem;
+    .header {
+      color: white;
+      margin-top: 1rem;
+      font-size: 3.5rem;
+      font-family: "rivian-bold";
+      transform: translateY(-12.5%);
+    }
 
-		.image-wrapper { 
-			margin: 2%;
-			max-width: 15rem;
-			max-height: 15rem;
+    .version {
+      color: #ffffff;
+      margin-top: 1rem;
+      margin-left: 1rem;
+      font-size: 3.5rem;
+      font-family: "rivian-bold";
+      transform: translateY(-12.5%);
+    }
 
-			.image {
-				border-radius: 10%;
-				-webkit-user-drag: none;
-			}
-		}
+    .sub {
+      color: white;
+      font-size: 1.5rem;
+      font-family: "rivian";
+    }
 
-		.text-wrapper {
-			margin-left: 2%;
-			margin-top: 0.4rem;
-
-			.header {
-				color: white;
-				font-size: 2.5rem;
-				font-family: "rivian-bold", "aileron-bold";
-			}
-
-			.main {
-				color: white;
-				font-size: 1.5rem;
-				margin-top: 0.25rem;
-				font-family: "rivian", "aileron";
-			}
-		}
-
-		.button-wrapper {
+    .button-wrapper {
 			width: 50%;
-			margin-top: 1rem;
-			margin-left: 0.5rem;
+			margin-top: 1.25rem;
+			margin-left: 2rem;
+      margin-right: 2rem;
 
 			display: flex;
 			text-align: center;
@@ -165,7 +138,10 @@ import { IonGrid, IonRow, IonCol } from '@ionic/vue';
 
 			.button {
 				width: 100%;
-				height: 2.9rem;
+				height: 5vh;
+        border-radius: 6vh;
+        transition: all .5s ease;
+        border: 2px solid white;
 
 				.button-text {
 					color: white;
@@ -175,13 +151,9 @@ import { IonGrid, IonRow, IonCol } from '@ionic/vue';
 					transition: all .5s ease;
 					font-family: "rivian", "aileron-bold";
 				}
-
-				border-radius: 6vh;
-				transition: all .5s ease;
-				border: 2px solid white;
 			}
 		}
-	}
+  }
 }
 
 .button-wrapper:hover {
@@ -204,13 +176,6 @@ import { IonGrid, IonRow, IonCol } from '@ionic/vue';
 @font-face {
   font-family: 'rivian-bold';
   src: url('../../font/Halbfett.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'aileron';
-  src: url('../../font/Rudder.otf');
   font-weight: normal;
   font-style: normal;
 }
