@@ -10,7 +10,7 @@ import { IonGrid, IonRow, IonCol } from '@ionic/vue';
         <IonRow>
           <IonCol size="auto">
             <div class="image-wrapper">
-              <img class="image" src="../../img/about/profile.gif">
+              <!-- <img class="image" src="../../img/about/profile.gif"> -->
             </div>
           </IonCol>
           <IonCol>

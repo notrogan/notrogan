@@ -12,10 +12,11 @@
         </div>
 
         <div class="hoist">
-          <img class="transition" src="../img/download.png">
+          <img class="transition" src="../img/lethal/header.png">
+          <img class="lethal" src="../img/lethal/logo.png">
         </div>
         
-        <div style="height: 100vh;"></div>
+        <div style="height: 125vh;"></div>
       </div>
       <div class="project">
         <div class="header">
@@ -50,7 +51,25 @@ import Project from './components/Project.vue';
 
 </script>
 
-<style scoped>
+<style scoped lang="css">
+
+@keyframes slide-lethal {
+  20% {
+    transform: translateY(-100%);
+  }
+  90% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fade-lethal {
+  15% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(40%);
+  }
+}
 
 .about {
   display: flex;
@@ -68,7 +87,20 @@ import Project from './components/Project.vue';
   align-items: center;
   justify-content: center;
 
+  .lethal {
+    animation: slide-lethal ease-out forwards;
+    animation-timeline: view();
+    animation-range: cover 70vh cover 175vh;
+
+    position: absolute;
+    filter: drop-shadow(0 0 .75rem rgb(0, 0, 0));
+  }
+
   .transition {
+    animation: fade-lethal ease-in-out forwards;
+    animation-timeline: view();
+    animation-range: cover 135vh cover 215vh;
+
     width: 100vw;
     height: 101vh;
     object-fit: cover;
@@ -115,65 +147,6 @@ import Project from './components/Project.vue';
   background-color: #fefeff;
   transform: translateX(-20vw) translateY(-5vh);
   clip-path: ellipse(50% 100% at 50% 0%);
-}
-
-.pill {
-  .hoist {
-    top: 0rem;
-    height: 100vh;
-    position: sticky;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .buffer {
-    height: 60vh;
-  }
-
-  .transition {
-    margin: 0 auto;
-    display: block;
-    
-    object-fit: cover;
-
-    animation: pill linear forwards;
-    animation-timeline: view();
-    animation-range: cover 83vh cover 150vh;
-
-    opacity: 1;
-    width: 80vw;
-    height: 60vh;
-    position: relative;
-    border-radius: 350px;
-  }
-}
-
-@keyframes pill {
-  0% {
-    opacity: 1;
-    width: 80vw;
-    height: 60vh;
-    position: relative;
-    border-radius: 350px;
-  }
-  30% {
-    width: 90vw;
-    height: 80vh;
-    border-radius: 400px;
-  }
-  60% {
-    width: 95vw;
-    height: 90vh;
-    border-radius: 450px;
-  }
-  100% {
-    width: 100%;
-    display: flex;
-    height: 100vh;
-    border-radius: 0;
-  }
 }
 
 @font-face {
