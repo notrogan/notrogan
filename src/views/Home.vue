@@ -12,29 +12,14 @@
         </div>
 
         <div class="hoist">
-          <img class="transition" src="../img/lethal/header.png">
-          <img class="lethal" src="../img/lethal/logo.png">
+          <img class="lethal-transition" src="../img/lethal/header.png">
+          <img class="lethal-logo" src="../img/lethal/logo.png">
         </div>
         
         <div style="height: 125vh;"></div>
       </div>
-      <div class="project">
-        <div class="header">
-          <div class="main">
-            Projects that arent
-          </div>
-          <div class="sub">
-            terrible
-          </div>
-          <div class="blurb">
-            We listened and learned to craft a vehicle fit for adventures of all kinds. R2 has everything you need to get out there and say yes to new things.
-          </div>
-        </div>
-      </div>
-      <div style="background-color: #141415;">
-        <div style="height: 5vh;"></div>
-      </div>
-      <div style="background-color: #141415;">
+      <div>
+        <div style="height: 5vh; background-color: #000000;"></div>
         <Project/>
       </div>
 
@@ -57,7 +42,7 @@ import Project from './components/Project.vue';
   20% {
     transform: translateY(-100%);
   }
-  90% {
+  95% {
     transform: translateY(0%);
   }
 }
@@ -67,7 +52,7 @@ import Project from './components/Project.vue';
     filter: brightness(1);
   }
   100% {
-    filter: brightness(40%);
+    filter: brightness(50%);
   }
 }
 
@@ -87,7 +72,7 @@ import Project from './components/Project.vue';
   align-items: center;
   justify-content: center;
 
-  .lethal {
+  .lethal-logo {
     animation: slide-lethal ease-out forwards;
     animation-timeline: view();
     animation-range: cover 70vh cover 175vh;
@@ -96,7 +81,21 @@ import Project from './components/Project.vue';
     filter: drop-shadow(0 0 .75rem rgb(0, 0, 0));
   }
 
-  .transition {
+  .lethal-header {
+    animation: slide-header-lethal ease-out forwards;
+    animation-timeline: view();
+    animation-range: cover 70vh cover 175vh;
+
+    position: absolute;
+    filter: drop-shadow(0 0 .75rem rgb(0, 0, 0));
+
+    position: absolute;
+    transform: translateY(300%);
+    font-size: 3.5rem;
+    font-family: 'company-regular';
+  }
+
+  .lethal-transition {
     animation: fade-lethal ease-in-out forwards;
     animation-timeline: view();
     animation-range: cover 135vh cover 215vh;
@@ -109,7 +108,7 @@ import Project from './components/Project.vue';
 
 .header {
   height: 70vh;
-  background-color: #141415;
+  background-color: #000000;
 
   .main {
     color: white;

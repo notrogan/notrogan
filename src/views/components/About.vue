@@ -10,7 +10,7 @@ import { IonGrid, IonRow, IonCol } from '@ionic/vue';
         <IonRow>
           <IonCol size="auto">
             <div class="image-wrapper">
-              <!-- <img class="image" src="../../img/about/profile.gif"> -->
+              <img class="image" src="../../img/about/profile.gif">
             </div>
           </IonCol>
           <IonCol>
@@ -19,7 +19,7 @@ import { IonGrid, IonRow, IonCol } from '@ionic/vue';
                 Hello!
               </div>
               <div class="main">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Pretend there are words here words words words words words words words words words
               </div>
             </div>
           </IonCol>
