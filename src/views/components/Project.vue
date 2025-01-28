@@ -39,7 +39,7 @@ onMounted(() => {
               First Person Death
             </div>
             <div class="main">
-              i dont feel like writing the descriptions for these... might add later :D
+              Toggle between the first-person and spectator camera after death; lightweight and configurable!
             </div>
           </div>
           <a class="button-wrapper" href="https://github.com/notrogan/FirstPersonDeath" target="_blank" rel="noreferrer noopener">
@@ -67,7 +67,6 @@ onMounted(() => {
 
   .button {
     width: 40%;
-    height: 4vh;
     border-radius: 6vh;
     transition: all .5s ease;
     border: 2px solid white;
@@ -76,7 +75,7 @@ onMounted(() => {
       color: white;
       font-size: 1.5rem;
       user-select: none;
-      margin-top: .25rem;
+      padding: .25rem;
       transition: all .5s ease;
       font-family: "rivian", "aileron-bold";
     }
@@ -121,6 +120,7 @@ onMounted(() => {
       }
 
       .main {
+        display: flex;
         color: #fefeff;
         font-size: 1.5rem;
         font-family: "rivian", "aileron-bold";
